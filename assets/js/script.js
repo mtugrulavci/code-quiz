@@ -1,10 +1,20 @@
 var count = 30;
+var i = 0;
+var a = 1;
 var counter = document.querySelector('#counter');
 var startBtn = document.querySelector('.startBtn');
 var start = document.querySelector('.start');
+
 var questionContainer = document.querySelector('#question-container');
 var questionElement = document.querySelector('.question');
-var selectedButton = document.querySelectorAll('.choice');
+var choice1 = document.querySelector('.choice-1');
+var choice2 = document.querySelector('.choice-2');
+var choice3 = document.querySelector('.choice-3');
+var choice4 = document.querySelector('.choice-4');
+
+var answerBtn = document.querySelectorAll('.answer-btn');
+
+var selectedButton = document.querySelectorAll('.choices');
 var answer = document.querySelector(".selected-answer");
 
 const questions  = [
@@ -41,11 +51,21 @@ function startQuiz(){
         counter.textContent = count;};
     }, 1000);
     start.removeChild(startBtn);
+
+    getQuestions();
     questionContainer.className = ".choice";
-    getQuestions () ;
+
 };
 
-
+function getQuestions(){
+  questionElement.textContent = 'Question  ' + a + " : " + questions[i].question;
+  choice1.textContent = questions[i].choices[0];
+  choice2.textContent = questions[i].choices[1]; 
+  choice3.textContent = questions[i].choices[2];
+  choice4.textContent = questions[i].choices[3]; 
+  i++;
+  a++;
+};
 
 startBtn.addEventListener("click", startQuiz);
-//selectedButton.addEventListener("click",getQuestions);
+answerBtn.forEach((btn)=>{ btn.addEventListener("click",getQuestions); });

@@ -28,7 +28,7 @@
 .hide{
     display: none;
 }
-.choice, .startBtn{
+button, .startBtn{
 display:block;
 padding: 10px;
 margin: 10px;
