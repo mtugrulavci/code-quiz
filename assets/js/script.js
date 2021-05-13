@@ -12,6 +12,7 @@ var choice2 = document.querySelector('.choice-2');
 var choice3 = document.querySelector('.choice-3');
 var choice4 = document.querySelector('.choice-4');
 var result = document.querySelector('.result');
+var restartBtn = document.createElement("BUTTON");
 
 var answerBtn = document.querySelectorAll('.answer-btn');
 var answer = document.querySelector(".selected-answer");
@@ -45,7 +46,7 @@ const questions  = [
   },
 ]
 function startQuiz(){
-    setInterval(function(){
+   timer =  setInterval(function(){
     if(count>0){
         count--;
         counter.textContent = count;};
@@ -81,6 +82,7 @@ function checkAnswer(e){
             count = count - 5;
         }else{
             count = 0;
+            
         }
     }
     if (questionCounter+1< questions.length){
@@ -88,15 +90,20 @@ function checkAnswer(e){
     getQuestions(questionCounter);
     } else {
         gameOver();
+        clearInterval(timer);
+
 
     }
 };
 function gameOver(){
     questionContainer.classList.add("hide");
     result.innerHTML = "Your Score is :" +count;
+    restartBtn.textContent = 'Try Again!'
+    result.appendChild(restartBtn) 
 
 };
 startBtn.addEventListener("click", startQuiz);    
+
 
 
 
