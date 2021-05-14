@@ -1,9 +1,12 @@
-var count = 30;
+var count = 75;
 var questionCounter = 0;
 var a = 1;
 var score =0;
+var topFive=5;
 var counter = document.querySelector('#counter');
 var startBtn = document.querySelector('.startBtn');
+var codeQuiz = document.querySelector('.code-quiz');
+var endGame = document.querySelector('.end-game')
 var start = document.querySelector('.start');
 var container = document.querySelector('.container');
 var questionContainer = document.querySelector('#question-container');
@@ -14,10 +17,15 @@ var choice3 = document.querySelector('.choice-3');
 var choice4 = document.querySelector('.choice-4');
 var result = document.querySelector('.result');
 var restartBtn = document.createElement("BUTTON");
+    restartBtn.className = ".re-start";
+
 
 var answerBtn = document.querySelectorAll('.answer-btn');
 var answer = document.querySelector(".selected-answer");
 
+var scoreBoard = document.querySelector(".scoreBoard");
+var userName = document.querySelector("#user");
+var scoreButton  = document.querySelector(".score-btn");
 
 const questions  = [
   {
@@ -47,12 +55,16 @@ const questions  = [
   },
 ]
 function startQuiz(){
+
    timer =  setInterval(function(){
     if(count>0){
         count--;
         counter.textContent = count;};
     }, 1000);
+    
     start.removeChild(startBtn);
+    codeQuiz.textContent = "";
+
 
     getQuestions(questionCounter);
     questionContainer.className = ".choice";
@@ -77,13 +89,13 @@ function checkAnswer(e){
 
     } else{
         answer.textContent = "Wrong!"
-        if(count>5){
-            count = count - 5;
+        if(count>6){
+            count = count - 6;
             score = count;
-
+            localStorage.setItem('mostRecentScore', score);
         }else{
             count = 0;
-            
+
         }
     }
     if (questionCounter+1< questions.length){
@@ -92,29 +104,59 @@ function checkAnswer(e){
     } else {
         gameOver();
         clearInterval(timer);
-
-
     }
 };
+
 function gameOver(){
     questionContainer.classList.add("hide");
-    result.innerHTML = "Your Score is :" +score;
-    restartBtn.textContent = 'Try Again!'
-    result.appendChild(restartBtn) 
+    result.innerHTML = "<p> Your Score is :" +score+" </p>";
+
+    scoreBoard.className = ".choice";
+
 };
 
 function restartQuiz(){
-    start.appendChild(startBtn);
-    count = 30;
+   start.appendChild(startBtn);
+    count = 75;
     questionCounter = 0;
     a = 1;
     result.removeChild(restartBtn);
+
     result.textContent = "";
+    codeQuiz.textContent = "Welcome to the Code quiz Challenge!";
 };
-result.addEventListener("click", restartQuiz);
 
-startBtn.addEventListener("click", startQuiz);    
+const mostRecentScore = localStorage.getItem('mostRecentScore');
+const highScores =JSON.parse(localStorage.getItem("highScores")) || [];
 
+function saveHighScore(e) {
+    e.preventDefault();
+
+   const scores = {
+        score: score,
+        name: userName.value
+    };
+    highScores.push(scores);
+    highScores. sort((a,b)=> b.score - a.score);
+    highScores.splice(5);
+    localStorage.setItem('highScores',JSON.stringify(highScores));
+
+    scoreBoard.innerHTML = scores.userName;
+    //window.location.assign("./score.html");
+    result.appendChild(restartBtn) 
+   restartBtn.textContent = "try again!";
+
+
+};
+
+
+
+
+startBtn.addEventListener("click", startQuiz);  
+
+scoreButton.addEventListener("click",saveHighScore);
+
+restartBtn.addEventListener("click", restartQuiz);
 
 
 

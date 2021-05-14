@@ -23,7 +23,8 @@
 #question-container, .start{
     position: absolute;
     top:50%;
-    left: 30%;
+    left: 40%;
+
 
 }
 
@@ -37,10 +38,29 @@ margin: 10px;
 width: 150px;
 background-color: blueviolet;
 color: cornsilk;
+border-radius: 25%;
 }
 .selected-answer{
     margin-top:30px;
 };
-.result p {
-padding-left: 100px;
+.end-game{
+position: relative;
+
+}
+.result{
+    position: absolute;
+    top:30%;
+    left: 40%;
+}
+.scoreBoard{
+    position: relative;
+
+}
+.form {
+    position: absolute;
+    top:50%;
+    left: 40%;
+}
+.choice{
+    display: block;
 }
