@@ -18,14 +18,22 @@ var choice4 = document.querySelector('.choice-4');
 var result = document.querySelector('.result');
 var restartBtn = document.createElement("BUTTON");
     restartBtn.className = ".re-start";
-
+var clearLocBtn = document.createElement("BUTTON");
+    clearLocBtn.className = ".loc-clear";
 
 var answerBtn = document.querySelectorAll('.answer-btn');
 var answer = document.querySelector(".selected-answer");
 
 var scoreBoard = document.querySelector(".scoreBoard");
+var scoreList = document.querySelector(".list");
+
+
 var userName = document.querySelector("#user");
 var scoreButton  = document.querySelector(".score-btn");
+
+
+
+
 
 const questions  = [
   {
@@ -121,9 +129,9 @@ function restartQuiz(){
     questionCounter = 0;
     a = 1;
     result.removeChild(restartBtn);
-
     result.textContent = "";
     codeQuiz.textContent = "Welcome to the Code quiz Challenge!";
+    scoreList.classList.add("hide");
 };
 
 const mostRecentScore = localStorage.getItem('mostRecentScore');
@@ -136,16 +144,24 @@ function saveHighScore(e) {
         score: score,
         name: userName.value
     };
+
     highScores.push(scores);
     highScores. sort((a,b)=> b.score - a.score);
     highScores.splice(5);
     localStorage.setItem('highScores',JSON.stringify(highScores));
 
-    scoreBoard.innerHTML = scores.userName;
-    //window.location.assign("./score.html");
-    result.appendChild(restartBtn) 
+ 
+   //window.location.assign("score.html");
+    result.appendChild(restartBtn) ;
    restartBtn.textContent = "try again!";
 
+   result.appendChild(clearLocBtn) ;
+   clearLocBtn.textContent = "Clear!";
+
+    scoreList.innerHTML = highScores.map(scores => { 
+       return `<li> ${scores.name} - ${scores.score} </li>`;
+   }).join("");
+   scoreBoard.classList.add("hide");
 
 };
 

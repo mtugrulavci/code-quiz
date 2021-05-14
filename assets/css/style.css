@@ -54,13 +54,19 @@ position: relative;
 }
 .scoreBoard{
     position: relative;
-
 }
 .form {
     position: absolute;
-    top:50%;
+    top:70%;
     left: 40%;
 }
 .choice{
     display: block;
+}
+.scoreList{
+    position: relative;
+    width: 30%;
+    margin-top: 220px;
+    margin-left: 710px;
+
 }
