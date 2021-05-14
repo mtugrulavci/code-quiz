@@ -3,11 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+p {
+    font-size: 30px;
+}
 .header-container{
     display: flex;
     justify-content: space-between;
     flex-wrap:wrap;
-    margin: 40px;
+    margin: 34px;
 }
 .timer{
     border: solid black 3px;
@@ -22,8 +25,10 @@
 }
 #question-container, .start{
     position: absolute;
-    top:50%;
+    top:10%;
     left: 40%;
+
+    padding: 50px;
 
 
 }
@@ -36,21 +41,43 @@ display:block;
 padding: 10px;
 margin: 10px;
 width: 150px;
-background-color: blueviolet;
+
+background-color:darkblue;
 color: cornsilk;
-border-radius: 25%;
+border-radius: 10%;
 }
+button:hover, .startBtn:hover{
+    display:block;
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+    
+    background-color:rgb(182, 64, 182);
+    color: white;
+    border-radius: 10%;
+    }
 .selected-answer{
     margin-top:30px;
+    width: 100%;
+    margin: auto;
+    margin-top: 30px;
+    text-align: left;
+    padding-top: 10px;
+    border-top: solid black 1px;
+
 };
 .end-game{
 position: relative;
 
+
 }
 .result{
     position: absolute;
+    padding: 20px;
     top:30%;
     left: 40%;
+
+
 }
 .scoreBoard{
     position: relative;
@@ -65,8 +92,14 @@ position: relative;
 }
 .scoreList{
     position: relative;
-    width: 30%;
-    margin-top: 220px;
-    margin-left: 710px;
+    width: 40%;
+    margin-top: 300px;
+    margin-left: 42%
 
+}
+.re-start, .loc-clear {
+    display: inline-block;
+}
+.re-start, .loc-clear:hover {
+    display: inline-block;
 }

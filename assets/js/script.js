@@ -117,7 +117,7 @@ function checkAnswer(e){
 
 function gameOver(){
     questionContainer.classList.add("hide");
-    result.innerHTML = "<p> Your Score is :" +score+" </p>";
+    result.innerHTML = "<p>  Your Score is :" +score+" </p>";
 
     scoreBoard.className = ".choice";
 
@@ -130,7 +130,9 @@ function restartQuiz(){
     a = 1;
     result.removeChild(restartBtn);
     result.textContent = "";
-    codeQuiz.textContent = "Welcome to the Code quiz Challenge!";
+    codeQuiz.innerHTML = `<p>Welcome to the Code quiz Challenge!<p> 
+    <p>Try to answer as many questions as possible in the given time limit. <br> 
+    top performer will be listed at the end of the quiz.</p>`
     scoreList.classList.add("hide");
 };
 
@@ -154,9 +156,9 @@ function saveHighScore(e) {
    //window.location.assign("score.html");
     result.appendChild(restartBtn) ;
    restartBtn.textContent = "try again!";
-
    result.appendChild(clearLocBtn) ;
-   clearLocBtn.textContent = "Clear!";
+   clearLocBtn.textContent = "Clear High Scores!";
+
 
     scoreList.innerHTML = highScores.map(scores => { 
        return `<li> ${scores.name} - ${scores.score} </li>`;
@@ -168,11 +170,14 @@ function saveHighScore(e) {
 
 
 
+
+
 startBtn.addEventListener("click", startQuiz);  
-
 scoreButton.addEventListener("click",saveHighScore);
-
 restartBtn.addEventListener("click", restartQuiz);
+clearLocBtn.addEventListener("click", function(){
+             localStorage.clear();
+         });
 
 
 
