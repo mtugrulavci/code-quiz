@@ -9,5 +9,5 @@ HTML, CSS, JAVASCRIPT, DOM Manupulations-WEB API
 
   ![Alert for validation error](./images/main.png)
   ![Alert for validation error](./images/questions.png)
-  ![Alert for validation error](./images/questions.png)
+  ![Alert for validation error](./images/save.png)
   ![Alert for validation error](./images/scores.png)
