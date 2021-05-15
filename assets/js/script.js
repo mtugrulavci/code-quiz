@@ -107,12 +107,14 @@ function checkAnswer(e){
             score = count;
             counter.textContent = score;
             localStorage.setItem('mostRecentScore', score);
-        }else{
+        } else{
             count = 0;
-
+            score = count;
+            counter.textContent = score;
+            localStorage.setItem('mostRecentScore', score);
         }
     }
-    if (questionCounter+1< questions.length){
+    if (questionCounter+1< questions.length && count!==0){
     questionCounter++;
     getQuestions(questionCounter);
     } else {
