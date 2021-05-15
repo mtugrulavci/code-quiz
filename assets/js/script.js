@@ -97,7 +97,7 @@ function getQuestions(questionCounter){
     a++; 
 };
 function checkAnswer(e){
-    if(e.target.textContent === questions[questionCounter].answer){
+    if(e.target.textContent === questions[questionCounter].answer && count !==0){
         answer.textContent = "Correct!"
         scoreList.classList.add("hide");
     } else{
