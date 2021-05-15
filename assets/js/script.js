@@ -123,7 +123,7 @@ function checkAnswer(e){
 
 function gameOver(){
     questionContainer.classList.add("hide");
-    result.innerHTML = `<p> All done! </p> <br> <p> Your Score is :`  + score + `   - Check high Score Below`;
+    result.innerHTML = `<p> All done! </p> <br> <p> Your Score is :`  + score ;
 
     scoreBoard.className = ".choice";
     scoreList.classList.add("hide");
