@@ -8,65 +8,18 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="high-score">
-               <button class="cornerBtn">Wiew High Scores</button> 
+  <div class="container">
+       <div class="highScoresTable">
+           <h1>High Scores</h1>
+            <ol class="list"> </ol>
+            <div class="btn-des">
+                <a class="startBtn" href="index.html"> Go Back</a>
+                <button class="clear"> Clear Scores</button>
             </div>
-            <div class="timer">
-            <p> time : <span id="counter"> 75</span> </p>
-            </div>
-        </div>
-    </header>
-
-    <section class="container">
-
-        <div class="start">
-            <div class="code-quiz"> <p>Welcome to the Code quiz Challenge!
-                <br><br>
-                Try to answer as many questions as possible in the given time limit. <br> top performer will be listed at the end of the quiz.</p>
-            </div> 
+       </div>
 
 
-            <br>
-            <button class="startBtn"> Start Quiz!</button>
-        </div>
-
-        <div id="question-container" class="hide">
-            <div class="question">QUESTION</div>
-            <button class="choice-1 answer-btn"> Answer 1</button>
-            <button class="choice-2 answer-btn"> Answer 2</button>
-            <button class="choice-3 answer-btn"> Answer 3</button>
-            <button class="choice-4 answer-btn"> Answer 3</button>
-
-            <div class="selected-answer"></div>
-        </div>
-        <div class="end-game">
-            
-            <div class="result"> 
- 
-            </div>
-
-        </div>
-        <div class = "scoreBoard hide">
-            <div class="form">
-                <br>
-                <br>
-                <label for ="user"> Enter Your Initials</label>
-                <input type="text" id="user"  placeholder="your initial"> </input>
-                <button class="score-btn" type="click">Submit</button>
-            </div> 
-        </div>
-        <div class="scoreList">
-           
-            <div class="list">
-            
-
-                
-
-            </div>
-        </div>
-    </section>
-    <script src="./assets/js/script.js"></script>
+  </div>
+    <script src="./assets/js/highScore.js"></script>
 </body>
 </html>

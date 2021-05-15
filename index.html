@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <title>Code Quiz</title>
 </head>
 <body>
     <header>
         <div class="header-container">
             <div class="high-score">
-               <button class="cornerBtn">Wiew High Scores</button> 
+               <a class="cornerBtn" href="score.html">View High Scores</a>
             </div>
             <div class="timer">
             <p> time : <span id="counter"> 75</span> </p>
@@ -43,9 +43,7 @@
         </div>
         <div class="end-game">
             
-            <div class="result" > 
- 
-            </div>
+            <div class="result" > </div>
 
         </div>
         <div class = "scoreBoard hide">
@@ -54,16 +52,14 @@
                 <br>
                 <label for ="user"> Enter Your Initials</label>
                 <input type="text"  id="user"  placeholder="your initial"> </input>
-                <button class="score-btn" type="click">Submit</button>
+                <button class="score-btn"  type="click">Submit</button>
             </div> 
         </div>
         <div class="scoreList">
-           <ol>
-
-            <div class="list">
-
-            </div>
-            </ol>
+            
+            <ol class="list">
+              </ol>
+            
         </div>
     </section>
     <script src="./assets/js/script.js"></script>

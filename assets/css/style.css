@@ -6,6 +6,8 @@
 p {
     font-size: 30px;
 }
+
+
 .header-container{
     display: flex;
     justify-content: space-between;
@@ -78,28 +80,50 @@ position: relative;
     left: 40%;
 
 
+
 }
 .scoreBoard{
     position: relative;
 }
 .form {
     position: absolute;
-    top:70%;
-    left: 40%;
+    top:100px;
+    left: 45%;
+    margin-top: 30px;
 }
 .choice{
     display: block;
 }
 .scoreList{
     position: relative;
-    width: 40%;
-    margin-top: 300px;
-    margin-left: 42%
+    width: 20%;
+    margin-top: 10px;
+    margin-left: 5%;
+
 
 }
 .re-start, .loc-clear {
-    display: inline-block;
+    display: inline;
 }
 .re-start, .loc-clear:hover {
-    display: inline-block;
+    display: inline;
+}
+.btn-des {
+    display: flex;
+}
+.highScoresTable{
+
+    top:30%;
+    width: 30%;
+    margin:auto;
+    padding-top: 50px;
+
+}
+.list{
+    margin: 20px;
+
+}
+a{
+    text-decoration: none;
+    
 }

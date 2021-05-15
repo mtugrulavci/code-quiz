@@ -76,11 +76,11 @@ function startQuiz(){
     
     start.removeChild(startBtn);
     codeQuiz.textContent = "";
-
+    scoreList.classList.add("hide");
 
     getQuestions(questionCounter);
     questionContainer.className = ".choice";
-
+    scoreList.classList.add("hide");
 
 };
 answerBtn[0].addEventListener("click", checkAnswer);
@@ -99,7 +99,7 @@ function getQuestions(questionCounter){
 function checkAnswer(e){
     if(e.target.textContent === questions[questionCounter].answer){
         answer.textContent = "Correct!"
-
+        scoreList.classList.add("hide");
     } else{
         answer.textContent = "Wrong!"
         if(count>6){
@@ -126,6 +126,7 @@ function gameOver(){
     result.innerHTML = `<p> All done! </p> <br> <p> Your Score is :`  + score + `   - Check high Score Below`;
 
     scoreBoard.className = ".choice";
+    scoreList.classList.add("hide");
 
 };
 
@@ -138,7 +139,8 @@ function restartQuiz(){
     result.textContent = "";
     codeQuiz.innerHTML = `<p>Welcome to the Code quiz Challenge!<p> 
     <p>Try to answer as many questions as possible in the given time limit. <br> 
-    top performer will be listed at the end of the quiz.</p>`
+    top performer will be listed at the end of the quiz.</p>`;
+
     scoreList.classList.add("hide");
 };
 
@@ -147,37 +149,35 @@ const highScores =JSON.parse(localStorage.getItem("highScores")) || [];
 
 function saveHighScore(e) {
     e.preventDefault();
-
    const scores = {
         score: score,
         name: userName.value
     };
+    scoreList.classList.add("choice");
+    result.appendChild(restartBtn) ;
+    restartBtn.textContent = "Go Back!";
+    result.appendChild(clearLocBtn) ;
+    clearLocBtn.textContent = "Clear High Scores!";
+    scoreList.classList.add("hide");
 
     highScores.push(scores);
     highScores. sort((a,b)=> b.score - a.score);
     highScores.splice(5);
     localStorage.setItem('highScores',JSON.stringify(highScores));
-
- 
-
-    result.appendChild(restartBtn) ;
-   restartBtn.textContent = "Go Back!";
-   result.appendChild(clearLocBtn) ;
-   clearLocBtn.textContent = "Clear High Scores!";
- 
-    scoreList.innerHTML = highScores.map(scores => { 
+    window.location.assign('./score.html');
+    /*scoreList.innerHTML = highScores.map(scores => { 
        return `<li> ${scores.name} - ${scores.score} </li>`;
-   }).join("");
+   }).join("");*/
+ 
    scoreBoard.classList.add("hide");
 
 };
 
-
-
-startBtn.addEventListener("click", startQuiz);  
 scoreButton.addEventListener("click",saveHighScore);
+startBtn.addEventListener("click", startQuiz);  
 restartBtn.addEventListener("click", restartQuiz);
-clearLocBtn.addEventListener("click", function(){
+clearLocBtn.addEventListener("click", function(e){
+            e.preventDefault();
              localStorage.clear();
          });
 
