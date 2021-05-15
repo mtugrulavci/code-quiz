@@ -4,6 +4,9 @@ var a = 1;
 var score =0;
 var topFive=5;
 var counter = document.querySelector('#counter');
+
+var cornerBtn = document.querySelector('.cornerBtn');
+
 var startBtn = document.querySelector('.startBtn');
 var codeQuiz = document.querySelector('.code-quiz');
 var endGame = document.querySelector('.end-game')
@@ -26,6 +29,7 @@ var answer = document.querySelector(".selected-answer");
 
 var scoreBoard = document.querySelector(".scoreBoard");
 var scoreList = document.querySelector(".list");
+var scoreListCont = document.querySelector(".scoreList");
 
 
 var userName = document.querySelector("#user");
@@ -77,6 +81,7 @@ function startQuiz(){
     getQuestions(questionCounter);
     questionContainer.className = ".choice";
 
+
 };
 answerBtn[0].addEventListener("click", checkAnswer);
 answerBtn[1].addEventListener("click", checkAnswer);
@@ -100,6 +105,7 @@ function checkAnswer(e){
         if(count>6){
             count = count - 6;
             score = count;
+            counter.textContent = score;
             localStorage.setItem('mostRecentScore', score);
         }else{
             count = 0;
@@ -117,7 +123,7 @@ function checkAnswer(e){
 
 function gameOver(){
     questionContainer.classList.add("hide");
-    result.innerHTML = "<p>  Your Score is :" +score+" </p>";
+    result.innerHTML = `<p> All done! </p> <br> <p> Your Score is :`  + score + `   - Check high Score Below`;
 
     scoreBoard.className = ".choice";
 
@@ -153,22 +159,18 @@ function saveHighScore(e) {
     localStorage.setItem('highScores',JSON.stringify(highScores));
 
  
-   //window.location.assign("score.html");
+
     result.appendChild(restartBtn) ;
-   restartBtn.textContent = "try again!";
+   restartBtn.textContent = "Go Back!";
    result.appendChild(clearLocBtn) ;
    clearLocBtn.textContent = "Clear High Scores!";
-
-
+ 
     scoreList.innerHTML = highScores.map(scores => { 
        return `<li> ${scores.name} - ${scores.score} </li>`;
    }).join("");
    scoreBoard.classList.add("hide");
 
 };
-
-
-
 
 
 
